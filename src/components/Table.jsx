@@ -1,5 +1,6 @@
 import txMapper from "../mappers/tx.mapper";
 import txData from "../registries/mock.registry";
+import NFT from "./NFT.jsx";
 
 const fixedData = txMapper(txData);
 
@@ -11,19 +12,13 @@ const Table = () => {
         return (
           <div key={hash} className="single-tx">
             <h3>Hash: {hash.slice(0, 8)}</h3>
-            <p>NFT Transfers: {nftTransfers.length}</p>
-            {nftTransfers.map((transfer) => {
-              const { from, to, nft } = transfer;
-              return (
-                <div key={nft.id}>
-                  <p>From: {from} </p>
-                  <p>To: {to} </p>
-                  <p>
-                    NFT: {nft.id} = {nft.contract}{" "}
-                  </p>
-                </div>
-              );
-            })}
+            {nftTransfers.length > 0 ? (
+              nftTransfers.map((transfer) => {
+                return <NFT key={transfer.nft.id} transfer={transfer} />;
+              })
+            ) : (
+              <p className="boring">😔 No NFT transfers...</p>
+            )}
           </div>
         );
       })}

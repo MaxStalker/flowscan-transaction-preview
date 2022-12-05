@@ -72,12 +72,3 @@ button:focus-visible {
 h3 {
   margin: 0;
 }
-
-.single-tx {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  flex-direction: column;
-}
-
