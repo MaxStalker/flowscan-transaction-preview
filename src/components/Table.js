@@ -1,13 +1,13 @@
 import txMapper from "../mappers/tx.mapper";
 import txData from "../registries/mock.registry";
-import NFT from "./NFT.jsx";
+import NFT from "./NFT";
 
 const fixedData = txMapper(txData);
 
 const Table = () => {
   return (
     <>
-      {fixedData.map((tx) => {
+      {fixedData.slice(0, 2).map((tx) => {
         const { hash, nftTransfers } = tx;
         return (
           <div key={hash} className="single-tx">

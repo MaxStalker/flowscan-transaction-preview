@@ -18,7 +18,5 @@ export const getNFTData = async (props) => {
     ),
   ];
 
-  // You can read about "query" method on Flow Docs Site:
-  // https://docs.onflow.org/fcl/reference/api/#query
   return query({ args, cadence });
 };
