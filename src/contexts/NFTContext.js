@@ -4,9 +4,18 @@ export const Registry = createContext({ nfts: {}, fetchNFT: null });
 
 export default function NFTContext(props) {
   const [nfts, setNFTs] = useState({});
+  const [fetched, setFetched] = useState({});
 
   const fetchNFT = async (contract, id, owner) => {
-    if (nfts[contract] && nfts[contract][id]) {
+      const key = `contract:id`;
+      if(!fetched[key]){
+        
+      }
+      setFetched({
+        ...fetched,
+        [key]: true
+      })
+/*    if (nfts[contract] && nfts[contract][id]) {
       console.log("we already fetched this one");
       return;
     }
@@ -23,7 +32,7 @@ export default function NFTContext(props) {
         ...nfts.contract,
         [id]: promisedResult,
       },
-    });
+    });*/
   };
 
   return (
